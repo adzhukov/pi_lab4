@@ -1,7 +1,6 @@
 language: python
 install:
   - pip install -r requirements.txt
-  - pip install coveralls
 script:
   - flake8 .
 addons:
@@ -9,5 +8,6 @@ addons:
     organization: "adzhukov"
 script:
   - sonar-scanner
+  - pytest --cov || true
 after_success:
   coveralls
